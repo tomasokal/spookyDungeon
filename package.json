@@ -9,7 +9,7 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "homepage": "https://tomasokal.github.io/boilerPlate",
+    "homepage": "https://tomasokal.github.io/spookyDungeon",
     "dependencies": {
         "@react-three/drei": "^9.32.3",
         "@react-three/fiber": "^8.8.7",
