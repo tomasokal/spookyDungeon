@@ -10,6 +10,27 @@ body,
     background: #141414;
 }
 
+.user-interface
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    z-index: 100;
+}
+
+.user-interface-crosshair
+{
+    height: 5px;
+    width: 5px;
+    background-color: white;
+    border-radius: 50%;
+    border: solid 1px gray;
+    margin: auto;
+}
+
 .interface
 {
     position: absolute;
