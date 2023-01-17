@@ -1,16 +1,17 @@
 
 import './style.css'
 
-import { Suspense } from 'react'
-import * as ReactDOM from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
 
-import Game from './Game.js'
-import UI from './utilities/UI'
+import Game from "./Game.js"
 
-const root = ReactDOM.createRoot(document.querySelector('#root'))
-root.render(
-    <Suspense fallback={null}>
-        <Game />
-        <UI />
-    </Suspense>  
-)
+function Overlay() 
+{
+  return (
+    <>
+      <Game />
+    </>
+  )
+}
+
+createRoot(document.getElementById("root")).render(<Overlay />)
