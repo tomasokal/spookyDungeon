@@ -24,14 +24,46 @@ import { CuboidCollider, RigidBody } from "@react-three/rapier"
 const columnGeometry = new THREE.CylinderGeometry(1.5, 1.5, 5, 32)
 const wallGeometry = new THREE.PlaneGeometry(1.5, 1.5, 5, 32)
 
-export function DungeonTest()
+export function DungeonTest(props)
 {
 
   return <>
   
     <RigidBody type="fixed" colliders={false} >
 
-      <CuboidCollider args={ [10, 0.5, 10] } position={ [0, 0, 0] } />
+      <CuboidCollider {...props} />
+
+    </RigidBody>
+  
+  </>
+
+}
+
+export function DungeonFloor(props)
+{
+
+  return <>
+  
+    <RigidBody type="fixed" colliders={false} >
+
+      <CuboidCollider {...props} />
+
+    </RigidBody>
+  
+  </>
+
+}
+
+export function DungeonStairs(props)
+{
+
+  // const [ x, y, z ] = props.postion.x
+
+  return <>
+  
+    <RigidBody type="fixed" colliders={false} >
+
+      <CuboidCollider {...props} />
 
     </RigidBody>
   
