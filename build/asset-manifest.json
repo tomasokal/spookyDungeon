@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/spookyDungeon/static/css/main.142fc5fd.css",
+    "main.js": "/spookyDungeon/static/js/main.796e5337.js",
+    "index.html": "/spookyDungeon/index.html",
+    "main.142fc5fd.css.map": "/spookyDungeon/static/css/main.142fc5fd.css.map",
+    "main.796e5337.js.map": "/spookyDungeon/static/js/main.796e5337.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.142fc5fd.css",
+    "static/js/main.796e5337.js"
+  ]
+}
