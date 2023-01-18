@@ -7,7 +7,7 @@ import { CapsuleCollider, Debug, RigidBody, useRapier } from "@react-three/rapie
 import Axe from "./Axe"
 import { Torch } from './Axe'
 
-const SPEED = 5
+const SPEED = 10
 const direction = new THREE.Vector3()
 const frontVector = new THREE.Vector3()
 const sideVector = new THREE.Vector3()
@@ -23,11 +23,11 @@ export default function Player({ lerp = THREE.MathUtils.lerp })
     const { forward, backward, leftward, rightward, jump } = get()
     const velocity = ref.current.linvel()
     // update camera
-    // state.camera.position.set(...ref.current.translation())
+    state.camera.position.set(...ref.current.translation())
     // update axe
-    axe.current.children[0].rotation.z = lerp(axe.current.children[0].rotation.z, Math.sin((velocity.length() > 1) * state.clock.elapsedTime * 10) / 6, 0.1)
-    axe.current.rotation.copy(state.camera.rotation)
-    axe.current.position.copy(state.camera.position).add(state.camera.getWorldDirection(rotation).multiplyScalar(1))
+    // axe.current.children[0].rotation.z = lerp(axe.current.children[0].rotation.z, Math.sin((velocity.length() > 1) * state.clock.elapsedTime * 10) / 6, 0.1)
+    // axe.current.rotation.copy(state.camera.rotation)
+    // axe.current.position.copy(state.camera.position).add(state.camera.getWorldDirection(rotation).multiplyScalar(1))
     // // movement
     frontVector.set(0, 0, backward - forward)
     sideVector.set(leftward - rightward, 0, 0)
@@ -44,11 +44,11 @@ export default function Player({ lerp = THREE.MathUtils.lerp })
         <CapsuleCollider args={[0.75, 0.5]} />
       </RigidBody>
       <Debug />
-      <group 
+      {/* <group 
         ref={axe} 
         onClick={(e) => (axe.current.children[0].rotation.x = -0.5)}
       >
         <Torch position={[0.3, -0.35, 0.5]} />
-      </group>
+      </group> */}
   </>
 }
