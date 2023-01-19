@@ -1,6 +1,7 @@
 import * as THREE from "three"
 import { useTexture } from "@react-three/drei"
 import { CuboidCollider, RigidBody } from "@react-three/rapier"
+import GameSound from "./GameSound"
 
 // export function Ground(props) {
 //   const texture = useTexture(grass)
@@ -97,6 +98,7 @@ export function DungeonColumn(props) {
       {...props}
     >
       <meshStandardMaterial color="red" />
+      <GameSound url="/bop.mp3" />
     </mesh>
   
   </>
