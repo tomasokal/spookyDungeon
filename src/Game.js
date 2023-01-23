@@ -1,12 +1,11 @@
-import { Canvas } from "@react-three/fiber"
-import { Sky, PointerLockControls, KeyboardControls, OrbitControls } from "@react-three/drei"
-import { Physics } from "@react-three/rapier"
-import { DungeonColumn, DungeonFloor, DungeonStairs } from "./world/Ground"
-import Player from "./player/Player.js"
 
-// The original was made by Maksim Ivanow: https://www.youtube.com/watch?v=Lc2JvBXMesY&t=124s
-// This demo needs pointer-lock, that works only if you open it in a new window
-// Controls: WASD + left click
+import { Canvas } from '@react-three/fiber'
+import { Sky, PointerLockControls, KeyboardControls } from '@react-three/drei'
+import { Physics } from '@react-three/rapier'
+
+import Player from "./player/Player.js"
+import GameSwitch from './world/GameSwitch.js'
+import { DungeonColumn, DungeonFloor, DungeonStairs } from "./world/Ground"
 
 export default function Game() {
   return (
@@ -47,7 +46,13 @@ export default function Game() {
             <DungeonFloor args={ [2, 0.5, 5] } position={ [40, 0, 25] } />
             <DungeonFloor args={ [2, 0.5, 5] } position={ [20, 0, 5] } />
 
+          {/* Test Asset */}
           <DungeonColumn position={ [0, 2.5, 0] }/>
+
+          {/* Toggles */}
+          <GameSwitch position={ [40, 1.5, 22] } color="green" />
+          <GameSwitch position={ [20, 1.5, 2] } color="yellow" />
+          <GameSwitch position={ [36, 1.5, 52] } color="red" />
 
           <Player />
         </Physics>
