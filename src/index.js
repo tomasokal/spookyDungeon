@@ -10,6 +10,7 @@ function Overlay()
   return (
     <>
       <Game />
+      <div className="user-interface-crosshair" />
     </>
   )
 }
