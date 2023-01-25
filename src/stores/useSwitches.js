@@ -22,6 +22,8 @@ const useGameStore = create((set)=>
         }
     }),
     resetSwitches: () => set((state) => ({ switchOrder: [] })),
+    correctOrder: false,
+    toggleCorrectOrder: () => set((state) => ({ correctOrder: !state.correctOrder})),
 
 }))
 

@@ -18,10 +18,10 @@ export default function GameSwitch(props)
     const [clicked, click] = useState(false)
 
     // Pull in zustand state management.
-    const check = useGameStore((state) => state.switchOrder)
+    const switchList = useGameStore((state) => state.switchOrder)
     const increaseSwitches = useGameStore((state) => state.increaseSwitches)
     const resetSwitches = useGameStore((state) => state.resetSwitches)
-    const checkSwitches = useGameStore((state) => state.checkSwitches)
+    const toggleCorrectOrder = useGameStore((state) => state.toggleCorrectOrder)
 
     // Function for when player interacts with switch.
     function playerClick ()
@@ -40,17 +40,23 @@ export default function GameSwitch(props)
     // Check whether need to reset switch.
     useEffect(() =>
     {
-        // TODO: Need a better way to do this, but...
         // If sequence is of length three:
-            // 1. Set sequence to nothing.
-            // 2. Change all switches to be turned off.
+            // 1. DONE: Set sequence to nothing.
+            // 2. DONE: Change all switches to be turned off.
             // 3. TODO: Give player some indication they failed.
-        if(check.length === 3)
+        if(switchList.length === 3)
         {
-            resetSwitches()
-            click(false)
+            if(JSON.stringify(switchList) == JSON.stringify(['green', 'yellow', 'red']))
+            {
+                toggleCorrectOrder()
+            }
+            else 
+            {
+                resetSwitches()
+                click(false)
+            }
         }
-    })
+    }, [switchList.length])
 
     // Frame management for floating and turn on animation.
     // TODO: Check whether can make switch fall down on ground with physics. 
