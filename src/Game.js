@@ -56,7 +56,7 @@ export default function Game() {
           <GameSwitch position={ [36, 1.5, 52] } color="red" />
 
           {/* Gate */}
-          <GameGate position={ [0, 4, 50] } color="purple" />
+          <GameGate position={ [0, 5, 50] } color="purple" />
 
           <Player />
         </Physics>
