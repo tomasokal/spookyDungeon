@@ -5,6 +5,7 @@ import { Physics } from '@react-three/rapier'
 
 import Player from "./player/Player.js"
 import GameSwitch from './world/GameSwitch.js'
+import GameGate from './world/GameGate.js'
 import { DungeonColumn, DungeonFloor, DungeonStairs } from "./world/Ground"
 
 export default function Game() {
@@ -53,6 +54,9 @@ export default function Game() {
           <GameSwitch position={ [40, 1.5, 22] } color="green" />
           <GameSwitch position={ [20, 1.5, 2] } color="yellow" />
           <GameSwitch position={ [36, 1.5, 52] } color="red" />
+
+          {/* Gate */}
+          <GameGate position={ [0, 4, 50] } color="purple" />
 
           <Player />
         </Physics>
