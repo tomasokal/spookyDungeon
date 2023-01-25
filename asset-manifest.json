@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/spookyDungeon/static/css/main.142fc5fd.css",
-    "main.js": "/spookyDungeon/static/js/main.99c1b1da.js",
+    "main.css": "/spookyDungeon/static/css/main.1c821de7.css",
+    "main.js": "/spookyDungeon/static/js/main.7a1f15cd.js",
     "static/media/bop.mp3": "/spookyDungeon/static/media/bop.08cdf6c515c2c04e2e44.mp3",
     "index.html": "/spookyDungeon/index.html",
-    "main.142fc5fd.css.map": "/spookyDungeon/static/css/main.142fc5fd.css.map",
-    "main.99c1b1da.js.map": "/spookyDungeon/static/js/main.99c1b1da.js.map"
+    "main.1c821de7.css.map": "/spookyDungeon/static/css/main.1c821de7.css.map",
+    "main.7a1f15cd.js.map": "/spookyDungeon/static/js/main.7a1f15cd.js.map"
   },
   "entrypoints": [
-    "static/css/main.142fc5fd.css",
-    "static/js/main.99c1b1da.js"
+    "static/css/main.1c821de7.css",
+    "static/js/main.7a1f15cd.js"
   ]
 }
