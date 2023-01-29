@@ -7,6 +7,7 @@ import Player from "./player/Player.js"
 import GameSwitch from './world/GameSwitch.js'
 import GameGate from './world/GameGate.js'
 import { DungeonColumn, DungeonFloor, DungeonStairs } from "./world/Ground"
+import GameTile from './world/GameTile.js'
 
 export default function Game() {
   return (
@@ -26,6 +27,10 @@ export default function Game() {
         <Physics gravity={[0, -30, 0]}>
 
           {/* Main Dungeon */}
+
+            {/* Tiles */}
+            <GameTile position={ [0, 0, -10] } wallDirection="left"/>
+            <GameTile position={ [-3, 0, -10] } wallDirection="right"/>
 
             {/* Entry Hall */}
             <DungeonFloor args={ [4, 0.5, 10] } position={ [0, 0, 5] } />
