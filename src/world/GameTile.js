@@ -1,4 +1,5 @@
 
+import { RigidBody } from '@react-three/rapier'
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 
@@ -6,58 +7,95 @@ import * as THREE from 'three'
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1)
 
 // Materials
-const floorMaterial = new THREE.MeshStandardMaterial({ color: '#565656', metalness: 0, roughness: 0 })
-const wallMaterial = new THREE.MeshStandardMaterial({ color: '#565656', metalness: 0, roughness: 0 })
-const ceilingMaterial = new THREE.MeshStandardMaterial({ color: '#565656', metalness: 0, roughness: 0 })
+const floorMaterial = new THREE.MeshStandardMaterial({ color: '#111111' })
+const wallMaterial = new THREE.MeshStandardMaterial({ color: '#333333', })
+const ceilingMaterial = new THREE.MeshStandardMaterial({ color: '#555555' })
 
-export default function GameTile({ position = [ 0, 0, 0 ], wallDirection = 'left' })
+export default function GameTile({ 
+    position = [ 0, 0, 0 ], 
+    rotationY = Math.PI,
+    tileType = 'wall',
+    decoration = 'none' 
+})
 {
 
     // Create ref for tile.
     const ref = useRef()
 
+    // Check if need wall.
+    const hasWall = !(tileType=='ceiling')
+
+    // Check if corner
+    const hasCorner = !!(tileType=='corner')
+    console.log(hasWall)
+    console.log(hasCorner)
+
     // Set up wallDirection of wall.
-    let wallPosition = [ 1.375, 2.5, 0 ]
-    let wallScale = [ 0.25, 5, 3 ]
-
-    console.log(wallDirection)
-
-        if(wallDirection=='right')
-        {
-            wallPosition = [ -1.375, 2.5, 0 ]
-            wallScale = [ 0.25, 5, 3 ]
-        }
+    let wallPositionOne = [ 1.475, 2.5, 0 ]
+    let wallScaleOne = [ 0.05, 5, 3 ]
+    let wallPositionTwo = [ 0, 2.5, 1.475 ]
+    let wallScaleTwo = [ 3, 5, 0.05 ]
 
     return <>
 
-        <group position={ position }>
+        <group 
+            position={ position }
+            rotation-y={rotationY}
+        >
 
             {/* Floor */}
+            <RigidBody
+                type="kinematicPosition" 
+            >
+                <mesh
+                    geometry={boxGeometry}
+                    material={floorMaterial}
+                    scale={[ 3, 0.25, 3 ]} 
+                    position={[ 0, 0, 0 ]}
+                />
+            </RigidBody>
 
-            <mesh
-                geometry={boxGeometry}
-                material={floorMaterial}
-                scale={[ 3, 0.25, 3 ]} 
-                position={[ 0, 0, 0 ]}
-            />
+            {/* Wall 1 */}
+            {
+                hasWall && 
+                <RigidBody
+                    type="kinematicPosition" 
+                >
+                    <mesh
+                        geometry={boxGeometry}
+                        material={wallMaterial}
+                        scale={wallScaleOne} 
+                        position={wallPositionOne}
+                    />
+                </RigidBody>
+            }
 
-            {/* Wall */}
-
-            <mesh
-                geometry={boxGeometry}
-                material={floorMaterial}
-                scale={wallScale} 
-                position={wallPosition}
-            />
+            {/* Wall 2 */}
+            {
+                hasCorner && 
+                <RigidBody
+                    type="kinematicPosition" 
+                >
+                    <mesh
+                        geometry={boxGeometry}
+                        material={wallMaterial}
+                        scale={wallScaleTwo} 
+                        position={wallPositionTwo}
+                    />
+                </RigidBody>
+            }
 
             {/* Ceiling */}
-
-            <mesh
-                geometry={boxGeometry}
-                material={ceilingMaterial}
-                scale={[ 3, 0.25, 3 ]} 
-                position={[ 0, 5, 0 ]}
-            />
+            <RigidBody
+                type="kinematicPosition" 
+            >
+                <mesh
+                    geometry={boxGeometry}
+                    material={ceilingMaterial}
+                    scale={[ 3, 0.25, 3 ]} 
+                    position={[ 0, 5, 0 ]}
+                />
+            </RigidBody>
 
         </group>  
     
